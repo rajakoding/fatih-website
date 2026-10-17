@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wow fatih just made his own website</title>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +13,41 @@
 <body>
     <main class="hero">
         <h1>Hello.</h1>
-        <p>literally nothing in this site</p>
+        <p>literally nothing here</p>
+
+        <nav class="navigation">
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka navigasi"
+                    aria-expanded="false"
+                    aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
     </main>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("active");
+
+            menuToggle.classList.toggle("open", isOpen);
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Tutup navigasi" : "Buka navigasi"
+            );
+        });
+    </script>
 </body>
 </html>
